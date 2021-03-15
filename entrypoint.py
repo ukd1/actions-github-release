@@ -2,9 +2,9 @@
 
 from github import Github
 import os
-wanted_release = os.environ['type']
-repository = os.environ['repository']
-token = os.getenv('token', None)
+wanted_release = os.environ['INPUT_TYPE']
+repository = os.environ['INPUT_REPOSITORY']
+token = os.getenv('INPUT_TOKEN', None)
 
 G = Github(token)
 repo = G.get_repo(repository)

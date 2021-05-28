@@ -6,7 +6,7 @@ This Action able to get release details of private Github repos.
 ### Inputs
 
 Name | Description | Example | Default
---- | --- | ---
+--- | --- | --- | ---
 repository | The Github owner/repository | `nodejs/node` | none
 type | The release type (prerelease or stable) | `stable` | `latest`
 token | Github auth token (default variable for each aciton session) | `${{ secrets.GITHUB_TOKEN }}` | `${{ secrets.GITHUB_TOKEN }}`

@@ -1,25 +1,30 @@
 name: 'Get latest Github release'
 description: 'Get the latest release from another repository and output that for use in other actions'
-author: "rez0n"
+author: 'rez0n'
 
 branding:
   icon: 'anchor'
   color: 'orange'
 
 inputs:
-  token:
-    description: 'GitHub Access token'
-    required: true
   repository:
     description: 'The repository name in full'
+    required: true
+  token:
+    description: 'GitHub Access token'
     required: false
   type:
     description: 'Wanted release type (latest, stable, draft)'
     required: false
+    default: 'latest'
 
 outputs:
   release:
-    description: 'Release'
+    description: 'Release tag'
+  release_tarball_url:
+    description: 'Release url, as a tar'
+  rerelease_zipball_urllease:
+    description: 'Release url, as a zip'
 
 runs:
   using: 'docker'

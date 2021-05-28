@@ -1,15 +1,15 @@
 # GitHub Actions: Get Github release
-This Action able to get latest release version (tag) of the remote repository.
+This Action able to get release details of private Github repos.
 
 ## Configuration
 
 ### Inputs
 
-Name | Description | Example
+Name | Description | Example | Default
 --- | --- | ---
-repository | The Github owner/repository | `nodejs/node`
-type | The release type (prerelease or stable) | `stable`
-token | Github auth token (default variable for each aciton session) | `${{ secrets.GITHUB_TOKEN }}`
+repository | The Github owner/repository | `nodejs/node` | none
+type | The release type (prerelease or stable) | `stable` | `latest`
+token | Github auth token (default variable for each aciton session) | `${{ secrets.GITHUB_TOKEN }}` | `${{ secrets.GITHUB_TOKEN }}`
 
 #### Possible values for `type` input
 * *stable* - Get the stable `latest` release
@@ -17,11 +17,14 @@ token | Github auth token (default variable for each aciton session) | `${{ secr
 * *latest* - Get the *really* latest release with no matter is it stable or prerelease
 
 ### Outputs
-Action outputs variable `release` with tag name of release.
+This action outputs the variables
+- `release` with tag name of release.
+- `release_tarball_url` with url of the tarball for that release.
+- `release_zipball_url` with url of the zipball for that release.
 
 ## Usage example
 
-```
+```yaml
 on:
   push:
     branches: [ main ]
